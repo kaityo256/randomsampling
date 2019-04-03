@@ -6,6 +6,10 @@
 struct cumulative_sum {
   std::vector<double> c_sum;
   std::uniform_real_distribution<double> ud;
+  const std::string name() {
+    return "Cumulative Sum";
+  }
+
   cumulative_sum(std::vector<double> &list) {
     double sum = 0.0;
     for (auto v : list) {

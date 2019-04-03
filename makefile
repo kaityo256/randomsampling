@@ -3,7 +3,7 @@ all: a.out
 CC=g++
 CPPFLAGS=-O3
 
-a.out: test.cpp
+a.out: test.cpp *.hpp
 	$(CC) $(CPPFLAGS) $< -o $@
 
 .PHONY: clean

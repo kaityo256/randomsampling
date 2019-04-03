@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <numeric>
 #include <random>
+#include <string>
 #include <vector>
 
 class walker_alias {
@@ -15,6 +16,9 @@ private:
   uint32_t int_max = ~static_cast<uint32_t>(0);
 
 public:
+  const std::string name() {
+    return "Walker's Alias";
+  }
   walker_alias(std::vector<double> &a) {
     nb = 1;
     while ((unsigned int)(1 << nb) <= a.size()) {
