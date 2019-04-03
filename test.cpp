@@ -1,6 +1,6 @@
 #include "binary_search.hpp"
 #include "cumulative_sum.hpp"
-#include "walker.hpp"
+#include "walker_alias.hpp"
 #include <iostream>
 #include <random>
 #include <vector>
