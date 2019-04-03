@@ -22,30 +22,23 @@ struct binary_search {
     std::copy(list.begin(), list.end(), tree.begin());
     int s = 0;
     for (int j = 0; (1 << j) < n; j++) {
-      //std::cout << (n >> (j + 1)) << std::endl;
       for (int i = 0; i < (n >> (j + 1)); i++) {
-        //std::cout << " " << (s + i * 2) << " " << (s + i * 2 + 1) << " " << (s + (n >> j)) << std::endl;
         tree[s + (n >> j) + i] = tree[s + i * 2] + tree[s + i * 2 + 1];
       }
       s += n >> j;
     }
-    for (size_t i = 0; i < tree.size(); i++) {
-      //std::cout << i << " " << tree[i] << std::endl;
-    }
   }
 
   int select(std::mt19937 &mt) {
+    std::uniform_real_distribution<double> ud(0.0, 1.0);
     int index = root_index;
     int base = root_index;
     for (int i = 0; index >= list_size; i++) {
-      std::uniform_real_distribution<double> ud(0.0, tree[index]);
-      //double v = ud(mt) * tree[index];
-      double v = ud(mt);
+      double v = ud(mt)*tree[index];
       int local_index = index - base;
       base -= (2 << i);
       int left = base + local_index * 2;
       int right = left + 1;
-      //std::cout << index << " " << left << " " << right << std::endl;
       if (v < tree[left]) {
         index = left;
       } else {
