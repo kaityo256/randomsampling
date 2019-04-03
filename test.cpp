@@ -1,3 +1,4 @@
+#include "binary_search.hpp"
 #include "cumulative_sum.hpp"
 #include "walker.hpp"
 #include <iostream>
@@ -6,7 +7,7 @@
 
 template <class T>
 void test() {
-  std::vector<double> v = {4, 6, 4, 9};
+  std::vector<double> v = {4, 6, 4, 9, 2};
   std::vector<double> r(v.size(), 0.0);
   std::mt19937 mt;
   T s(v);
@@ -25,4 +26,5 @@ void test() {
 int main() {
   test<walker_alias>();
   test<cumulative_sum>();
+  test<binary_search>();
 }
